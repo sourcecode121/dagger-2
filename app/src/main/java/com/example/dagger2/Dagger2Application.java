@@ -13,5 +13,12 @@ public abstract class Dagger2Application extends Application {
     public void onCreate() {
         super.onCreate();
 
+        component = DaggerApplicationComponent.builder()
+                .applicationModule(new ApplicationModule(this))
+                .build();
+    }
+
+    public ApplicationComponent getComponent() {
+        return component;
     }
 }
